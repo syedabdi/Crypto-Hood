@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { AngularCliHerokuPage } from './app.po';
 
-describe('crypto-hood App', () => {
-  let page: AppPage;
+describe('angular-cli-heroku App', () => {
+  let page: AngularCliHerokuPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AngularCliHerokuPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
