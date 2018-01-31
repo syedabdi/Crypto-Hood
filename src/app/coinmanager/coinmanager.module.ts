@@ -9,10 +9,13 @@ import { MaterialModule } from '../shared/materials.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import {CoinService } from './services/coin.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CalculatorDialogComponent } from './components/calculator-dialog/calculator-dialog.component';
 const routes:Routes =[
   {path:'',component:CoinmanagerAppComponent,
 children:[
+  {path:':id',component:MainContentComponent},
   {path:'',component:MainContentComponent}
 ]},
 {path:'**',redirectTo:''}
@@ -21,11 +24,18 @@ children:[
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CoinmanagerAppComponent, ToolbarComponent, MainContentComponent, SideNavComponent]
+  providers:[
+   CoinService
+  ],
+  declarations: [CoinmanagerAppComponent, ToolbarComponent, MainContentComponent, SideNavComponent, CalculatorDialogComponent],
+  entryComponents:[
+    CalculatorDialogComponent
+  ]
 })
 export class CoinmanagerModule { }

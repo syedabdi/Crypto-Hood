@@ -6,11 +6,13 @@
       <mat-toolbar color="primary">
         Coins
       </mat-toolbar>
-      <mat-list>
-        <mat-list-item>Bitcoin</mat-list-item>
-        <mat-list-item>Ethereum</mat-list-item>
-        <mat-list-item>Litecoin</mat-list-item>
-      </mat-list>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let coin of coins | async">
+           <a matLine [routerLink]="['/coinmanager', coin.id]">
+             {{ coin.name }}
+           </a>
+       </mat-list-item>
+      </mat-nav-list>
     </mat-sidenav>
   
     <div class="app-sidenav-content">

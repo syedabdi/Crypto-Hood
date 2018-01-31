@@ -1,4 +1,16 @@
-<mat-card>
-  <h1>main-content works</h1>
-</mat-card>
+<div *ngIf="!coin">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="coin">   
+  <mat-card>
+    <mat-card-header>   
+      <mat-card-title>
+        <h2>{{ coin.name }}</h2> 
+        <div id="widgets"></div>
+      </mat-card-title>      
+    </mat-card-header>
+    <div id="widget"></div> 
+  </mat-card>
+</div>
+
  
